@@ -32,3 +32,17 @@ export async function addproduct({ name, quantity, stock, categoryId }: Product)
     });
     return newProduct;
 }
+
+export const updateProduct = async (id: number, name: string, quantity: number, stock: number, categoryId: number) => {
+    return await prisma.product.update({
+      where: { id },
+      data: { name, quantity, stock, categoryId },
+    });
+  };
+
+  export const deleteProduct = async (id: number) => {
+    return await prisma.product.delete({
+      where: { id },
+    });
+  };
+  

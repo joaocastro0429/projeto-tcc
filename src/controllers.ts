@@ -21,5 +21,18 @@ export const addProducts = async (req: Request, res: Response) => {
        console.error(error);
        res.status(500).json({ error: "Erro ao adicionar produto" });
    }
-};
+}
 
+
+export const updateProduct = async (req: Request, res: Response) => {
+   const { id } = req.params;
+   const { name, quantity, stock, categoryId } = req.body;
+   const updatedProduct = await produtosService.updateProduct(Number(id), name, quantity, stock, categoryId);
+   res.json(updatedProduct);
+ };
+
+ export const deleteProduct = async (req: Request, res: Response) => {
+   const { id } = req.params;
+   await produtosService.deleteProduct(Number(id));
+   res.status(204).send();
+ };
