@@ -1,11 +1,8 @@
 import express from 'express'
-import 'dotenv/config'
-import productRouter from './router/ProductsRouter'
+import {router} from './router'
 
-const app = express()
-
+const app=express()
 app.use(express.json())
-app.use(productRouter)
+app.use(router)
 
-
-app.listen(process.env.PORT || 3000)
+app.listen(5555)
