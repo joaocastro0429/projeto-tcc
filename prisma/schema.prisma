@@ -13,8 +13,8 @@ model Product {
   quantity   Int       // Specify the type here (e.g., Int)
   stock      Int
   createdAt  DateTime  @default(now())
-  categoryId Int?
-  category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
 
   @@map("products")
 }

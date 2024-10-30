@@ -5,7 +5,7 @@ CREATE TABLE "products" (
     "quantity" INTEGER NOT NULL,
     "stock" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "categoryId" INTEGER,
+    "categoryId" INTEGER NOT NULL,
 
     CONSTRAINT "products_pkey" PRIMARY KEY ("id")
 );
@@ -19,4 +19,4 @@ CREATE TABLE "categories" (
 );
 
 -- AddForeignKey
-ALTER TABLE "products" ADD CONSTRAINT "products_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "categories"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "products" ADD CONSTRAINT "products_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "categories"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
